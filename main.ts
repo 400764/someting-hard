@@ -1,28 +1,7 @@
-input.onSound(DetectedSound.Quiet, function () {
-    if (開始 == 1) {
-        basic.showLeds(`
-            . # # # .
-            . # # # .
-            . # # # .
-            # . # . #
-            . # . # .
-            `)
-    }
-})
 input.onGesture(Gesture.Shake, function () {
     if (開始 == 1) {
         basic.clearScreen()
-    }
-})
-input.onSound(DetectedSound.Loud, function () {
-    if (開始 == 1) {
-        basic.showLeds(`
-            . # # # .
-            . # # # .
-            # # # # #
-            . . # . .
-            . # . # .
-            `)
+        開始 += -1
     }
 })
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
@@ -39,5 +18,22 @@ let 開始 = 0
 開始 = 0
 basic.clearScreen()
 basic.forever(function () {
-	
+    if (開始 == 1 && 99 < input.soundLevel()) {
+        basic.showLeds(`
+            . # # # .
+            . # # # .
+            # # # # #
+            . . # . .
+            . # . # .
+            `)
+    }
+    if (開始 == 1 && input.soundLevel() < 100) {
+        basic.showLeds(`
+            . # # # .
+            . # # # .
+            . # # # .
+            # . # . #
+            . # . # .
+            `)
+    }
 })
