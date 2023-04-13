@@ -20,6 +20,7 @@ let 開始 = 0
 basic.clearScreen()
 basic.forever(function () {
     if (開始 == 1 && 49 < input.soundLevel()) {
+        led.setBrightness(input.lightLevel())
         basic.showLeds(`
             . # # # .
             . # # # .
@@ -29,6 +30,7 @@ basic.forever(function () {
             `)
     }
     if (開始 == 1 && input.soundLevel() < 50) {
+        led.setBrightness(input.lightLevel())
         basic.showLeds(`
             . # # # .
             . # # # .
