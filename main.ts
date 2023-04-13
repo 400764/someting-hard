@@ -2,6 +2,7 @@ input.onGesture(Gesture.Shake, function () {
     if (開始 == 1) {
         basic.clearScreen()
         開始 += -1
+        music.playMelody("C5 B A G F E D C ", 400)
     }
 })
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
@@ -18,7 +19,7 @@ let 開始 = 0
 開始 = 0
 basic.clearScreen()
 basic.forever(function () {
-    if (開始 == 1 && 99 < input.soundLevel()) {
+    if (開始 == 1 && 49 < input.soundLevel()) {
         basic.showLeds(`
             . # # # .
             . # # # .
@@ -27,7 +28,7 @@ basic.forever(function () {
             . # . # .
             `)
     }
-    if (開始 == 1 && input.soundLevel() < 100) {
+    if (開始 == 1 && input.soundLevel() < 50) {
         basic.showLeds(`
             . # # # .
             . # # # .
